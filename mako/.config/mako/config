@@ -1,0 +1,39 @@
+# Mako configuration - Flexoki theme
+
+# Positioning
+anchor=top-right
+margin=10
+padding=15
+
+# Size
+width=350
+height=150
+
+# Font
+font=Inter 11
+
+# Colors (Flexoki)
+background-color=#282726f0
+text-color=#cecdc3
+border-color=#1c1b1a
+border-size=2
+border-radius=10
+
+# Progress bar
+progress-color=over #24837b
+
+# Urgency colors
+[urgency=low]
+border-color=#66800b
+
+[urgency=normal]
+border-color=#24837b
+
+[urgency=high]
+border-color=#af3029
+default-timeout=0
+
+# Behavior
+default-timeout=5000
+ignore-timeout=0
+layer=overlay

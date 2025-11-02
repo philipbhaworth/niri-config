@@ -1,0 +1,97 @@
+/* Flexoki-ish minimal (no GTK-specific functions; pure CSS) */
+* {
+  font-family: "Inter", "JetBrainsMono Nerd Font", Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+window#waybar {
+  background-color: rgba(40,39,38,0.94);   /* #282726 w/ alpha */
+  color: #cecdc3;                           /* fg */
+  border-bottom: 1px solid #1c1b1a;         /* brblk */
+}
+
+/* Shared padding */
+#clock, #cpu, #memory, #network, #pulseaudio, #tray, #idle_inhibitor,
+#window, #workspaces, #custom-power { padding: 0 10px; }
+
+/* Window title */
+#window { color: #fffcf0; opacity: 0.95; }
+
+/* Workspaces with cyan for focused */
+#workspaces { margin: 0 6px; }
+
+#workspaces button {
+  color: #fffcf0;
+  background: transparent;
+  padding: 0 8px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  box-shadow: none;
+}
+
+#workspaces button:hover {
+  background: rgba(255,252,240,0.06);
+  box-shadow: none;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  color: #24837b;                            /* cyan text */
+}
+
+#workspaces button.urgent { border-bottom-color: #af3029; }
+#workspaces button.empty { color: #cecdc3; }
+
+#custom-separator {
+  color: #6F6E69;  /* muted gray */
+  padding: 0 8px;
+  font-weight: 400;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor { color: #cecdc3; }
+
+#idle_inhibitor.activated {
+  color: #66800b;                            /* green when active */
+  border-bottom: 3px solid #66800b;
+}
+
+#idle_inhibitor.deactivated {
+  color: #cecdc3;
+  border-bottom: 3px solid transparent;
+  opacity: 0.95;
+}
+
+/* Accents for stats */
+#cpu { color: #879A39; }
+#memory { color: #8B7EC8; }
+#network { color: #4385BE; }
+#network.disconnected { color: #af3029; }
+#pulseaudio { color: #fffcf0; }
+#pulseaudio.muted { color: #cecdc3; }
+#clock { color: #fffcf0; }
+
+/* Power button */
+#custom-power {
+  color: #3AA99F;      /* cyan */
+  padding: 0 12px;
+  font-size: 18px;
+}
+
+#custom-power:hover {
+  background: rgba(175,48,41,0.1);
+}
+
+/* Tray slightly separated */
+#tray { color: #cecdc3; background-color: rgba(28,27,26,0.5); }
+
+/* Gentle hover */
+button:hover, #clock:hover, #cpu:hover, #memory:hover,
+#network:hover, #pulseaudio:hover, #idle_inhibitor:hover {
+  background: rgba(255,252,240,0.06);
+}
+
+/* Keep last module off the edge */
+window#waybar .modules-right { padding-right: 10px; }
+window#waybar .modules-right > *:last-child { margin-right: 6px; }

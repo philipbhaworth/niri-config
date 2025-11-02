@@ -1,0 +1,16 @@
+[Unit]
+Description=Idle manager (swayidle) for Niri
+PartOf=niri.service
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swayidle -w \
+  timeout 900 'swaylock -f' \
+  timeout 915 'niri msg action power-off-monitors' \
+  before-sleep 'swaylock -f'
+Restart=on-failure
+
+[Install]
+WantedBy=niri.service
+

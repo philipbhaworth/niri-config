@@ -1,0 +1,88 @@
+// -*- mode: jsonc -*-
+// Safe minimal Waybar config (Arch defaults)
+// Uses niri/* modules like the Arch default template.
+{
+  "height": 28,
+  "spacing": 6,
+
+  "modules-left": [
+    "niri/workspaces",
+    "custom/separator",
+    "niri/window"
+  ],
+  "modules-right": [
+    "idle_inhibitor",
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio",
+    "clock",
+    "tray",
+    "custom/power"
+  ],
+
+  "niri/workspaces": {
+    "all-outputs": false,
+    "disable-click": false,
+    "disable-markup": false,
+    "format": "{index}"
+  },
+
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+
+  "niri/window": {
+    "format": "[{}]"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  "network": {
+    "format-wifi": "{essid} {signalStrength}%",
+    "format-ethernet": "{ipaddr}",
+    "format-linked": "{ifname}",
+    "format-disconnected": "disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}\n{ipaddr}/{cidr}"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "muted",
+    "format-icons": { "default": ["","",""] },
+    "on-click": "pavucontrol"
+  },
+
+  "cpu": { 
+    "interval": 3, 
+    "format": "CPU|{usage}%",
+    "on-click": "kitty btop" 
+  },
+  "memory": { 
+    "interval": 5, 
+    "format": "MEM|{percentage}%",
+    "on-click": "kitty btop"
+  },
+
+  "clock": {
+    "format": "{:%a %b %d  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d %H:%M:%S}"
+  },
+
+  "tray": { "spacing": 8 },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/power-menu.sh"
+  }
+}

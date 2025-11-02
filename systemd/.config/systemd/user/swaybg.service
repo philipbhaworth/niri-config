@@ -1,0 +1,13 @@
+[Unit]
+Description=Wayland background (swaybg)
+PartOf=niri.service
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swaybg -m fill -i %h/wallpapers/wall63.jpg
+Restart=on-failure
+
+[Install]
+WantedBy=niri.service
+
