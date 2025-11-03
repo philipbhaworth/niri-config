@@ -142,6 +142,18 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match app-id=r#"^qalculate-gtk$"#
+    open-floating true
+
+    // Initial size (pick fixed pixels or proportions)
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
+
+    // Optional: position (default is center; uncomment to anchor to top)
+    // default-floating-position x=0 y=0 relative-to="top"
+}
+
 
 // ==========================================================
 // BINDS (keyboard shortcuts)
